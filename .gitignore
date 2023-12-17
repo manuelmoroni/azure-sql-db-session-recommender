@@ -3,9 +3,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-# Custom files
-setup-database.sql
-
 # User-specific files
 *.rsuser
 *.suo
@@ -408,3 +405,4 @@ FodyWeavers.xsd
 azuredeploy.parameters.json
 *.zip
 
+database/setup-database.sql
