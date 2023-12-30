@@ -10,7 +10,7 @@ export async function loader() {
   return defer({ userInfo, sessionsCount });
 }
 
-function showSessionCount(sessionsCount) {  
+function showSessionCount(sessionsCount) {
   var sc = sessionsCount;
   if (sc == undefined) {
     sc = ls.get("sessionsCount");
@@ -19,7 +19,7 @@ function showSessionCount(sessionsCount) {
   }
   if (sc == undefined) {
     return (<p className="font-subtitle-2">Loading session count...</p>);
-  }  
+  }
   return (
     <p className="font-subtitle-2">There are {sc} sessions indexed so far.</p>
   );
@@ -32,16 +32,16 @@ export default function Root() {
   return (
     <>
       <div id="header">
-        <h1 className="font-title-2">Cool Conference Session Finder</h1>
+        <h1 className="font-title-2">Cool Conference Session Finder - Manuel Version 1.0</h1>
         <p className="font-subtitle-2 user-info">
-          { userInfo ?
+          {userInfo ?
             <span>Welcome {userInfo.userDetails}! [<a href="/logout">Logout</a>] </span>
             :
             <a href="/login">Login with Microsoft Entra ID</a>
           }
         </p>
         <p className="font-subtitle-2">
-          Use OpenAI to search for interesting sessions. Write the topic you're interested in, and (up to) the top ten most interesting and related session will be returned.         
+          Use OpenAI to search for interesting sessions. Write the topic you're interested in, and (up to) the top ten most interesting and related session will be returned.
           The search is done using <a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#embeddings-models">text embeddings</a> and then using <a href="https://en.wikipedia.org/wiki/Cosine_similarity" target="_blank">cosine similarity</a> to find the most similar sessions.
         </p>
         <p className="font-subtitle-2">
@@ -49,12 +49,12 @@ export default function Root() {
         </p>
         <React.Suspense fallback={showSessionCount()}>
           <Await resolve={sessionsCount} errorElement={(<p className="font-subtitle-2">Unable to load session count 😥...</p>)}>
-          {(sessionsCount) => showSessionCount(sessionsCount)}
-          </Await>        
+            {(sessionsCount) => showSessionCount(sessionsCount)}
+          </Await>
         </React.Suspense>
       </div>
-      <div>      
-        <Outlet /> 
+      <div>
+        <Outlet />
       </div>
     </>
   );
