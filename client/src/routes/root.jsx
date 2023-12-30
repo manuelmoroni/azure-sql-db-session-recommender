@@ -32,7 +32,7 @@ export default function Root() {
   return (
     <>
       <div id="header">
-        <h1 className="font-title-2">Cool Conference Session Finder - Manuel Version 1.0</h1>
+        <h1 className="font-title-2">Cool Conference Session Finder - Manuel V.1.0</h1>
         <p className="font-subtitle-2 user-info">
           {userInfo ?
             <span>Welcome {userInfo.userDetails}! [<a href="/logout">Logout</a>] </span>
